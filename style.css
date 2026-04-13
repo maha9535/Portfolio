@@ -579,81 +579,69 @@ section {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* === Skills Grid Refinement (Staggered) === */
-.skills-grid-staggered {
+/* === Skills Grid Refinement (New layout) === */
+.skills-grid-new {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-    margin-top: 80px;
-}
-
-.skill-card-salmon {
-    background: #ffffff;
-    border: 1px solid rgba(0, 0, 0, 0.04);
-    padding: 35px;
-    height: 320px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    transition: var(--transition);
-    box-shadow: 0 10px 30px rgba(45, 52, 54, 0.04);
-}
-
-.skill-card-salmon:hover {
-    border-color: var(--accent-skill);
-    transform: translateY(-10px);
-    box-shadow: 0 10px 40px rgba(233, 150, 122, 0.1);
-}
-
-.skill-card-salmon i {
-    font-size: 2.2rem;
-    color: var(--accent-skill);
-    margin-bottom: 25px;
-    align-self: flex-start;
-}
-
-.skill-card-salmon h3 {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--accent-skill);
-    margin-bottom: 15px;
-    line-height: 1;
-}
-
-.skill-card-salmon p {
-    color: #888;
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
-/* Staggering effect */
-.skill-card-salmon.stagger-down {
-    transform: translateY(40px);
-}
-
-.skill-card-salmon.stagger-up {
-    transform: translateY(-40px);
-}
-
-/* Specific offsets per image */
-.skill-card-salmon:nth-child(2) {
+    gap: 30px;
     margin-top: 60px;
 }
 
-.skill-card-salmon:nth-child(3) {
-    margin-top: -30px;
+@media (max-width: 1000px) {
+    .skills-grid-new {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
-.skill-card-salmon:nth-child(4) {
-    margin-top: 20px;
+@media (max-width: 600px) {
+    .skills-grid-new {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
 }
 
-.skill-card-salmon:nth-child(6) {
-    margin-top: 30px;
+.skill-card-new {
+    background: var(--gradient-rainbow);
+    background-size: 200% auto;
+    animation: rainbow-sweep 5s linear infinite;
+    border-radius: 10px;
+    padding: 30px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    min-height: 160px;
+    border: none;
 }
 
-.skill-card-salmon:nth-child(7) {
-    margin-top: -20px;
+.skill-card-new:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.skill-card-new i {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.skill-card-new h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+[data-theme="dark"] .skill-card-new {
+    /* Keep rainbow gradient in dark mode too */
+    box-shadow: 0 5px 25px rgba(0,0,0,0.6);
 }
 
 /* === Life Skill Projects === */
